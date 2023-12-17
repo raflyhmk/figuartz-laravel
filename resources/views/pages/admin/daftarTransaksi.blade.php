@@ -27,8 +27,9 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
               <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">
-                </h6>
+                <button type="button" class="btn btn-primary" onclick="event.preventDefault(); location.href='{{ url('admin/cetak-pesanan') }}';">
+                    Cetak daftar pesanan
+                  </button>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
@@ -42,7 +43,6 @@
                       <tr>
                         <th>Nama pemesan</th>
                         <th>Email pemesan</th>
-                        <th>Telpon pemesan</th>
                         <th>Produk dipesan</th>
                         <th>Jumlah dipesan</th>
                         <th>Harga yang dibayar</th>
@@ -53,7 +53,6 @@
                       <tr>
                         <th>Nama pemesan</th>
                         <th>Email pemesan</th>
-                        <th>Telpon pemesan</th>
                         <th>Produk dipesan</th>
                         <th>Jumlah dipesan</th>
                         <th>Harga yang dibayar</th>
@@ -63,10 +62,9 @@
                     <tbody>
                         @foreach($daftarTransaksi as $dt)
                       <tr>
-                        <td class="text-capitalize align-middle">{{$dt -> name}}</td>
-                        <td class="text-capitalize align-middle">{{$dt -> email}}</td>
-                        <td class="text-capitalize align-middle">{{$dt -> phone_number}}</td>
-                        <td class="text-capitalize align-middle">{{$dt -> product_name}}</td>
+                        <td class="text-capitalize align-middle">{{$dt -> user -> name}}</td>
+                        <td class="text-capitalize align-middle">{{$dt -> user-> email}}</td>
+                        <td class="text-capitalize align-middle">{{$dt -> product -> product_name}}</td>
                         <td class="text-capitalize align-middle">{{$dt -> count}}</td>
                         <td class="align-middle">Rp{{number_format($dt -> product_price, 0)}}</td>
                         <td class="align-middle">

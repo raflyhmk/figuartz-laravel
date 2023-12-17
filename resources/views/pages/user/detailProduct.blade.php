@@ -62,19 +62,7 @@
             <form action="" method="post" enctype="multipart/form-data">
               @csrf
               <input type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$detailProducts -> product_price}}" name="product_price">
-              <input type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$detailProducts -> product_name}}" name="product_name">
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Nama Pemesan</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{Auth::user()->name}}" name="name">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Email pemesan</label>
-                <input type="email" class="form-control" id="exampleInputPassword1" value="{{Auth::user()->email}}" name="email">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">No Handphone pemesan</label>
-                <input type="number" class="form-control" id="exampleInputPassword1" name="phone_number">
-            </div>
+              <input type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$detailProducts -> id}}" name="id_product">
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Jumlah dipesan</label>
                 <input type="number" class="form-control" id="exampleInputPassword1" name="count">

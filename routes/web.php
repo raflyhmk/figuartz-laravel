@@ -50,6 +50,8 @@ Route::get('/admin/edit-user/{id}', [adminController::class, 'editUser'])->middl
 Route::put('/admin/edit-user/{id}', [adminController::class, 'updateUser'])->middleware('auth:admin');
 Route::delete('/admin/hapus-user/{id}', [adminController::class, 'deleteUser'])->middleware('auth:admin');
 
+Route::get('/admin/cetak-pesanan', [adminController::class, 'cetakPesanan'])->middleware('auth:admin');
+
 Route::get('/products', [userController::class, 'products']);
 Route::get('/products/{id}', [userController::class, 'detailProducts']);
 Route::post('/products/{id}', [userController::class, 'orderProducts'])->middleware('auth:web');

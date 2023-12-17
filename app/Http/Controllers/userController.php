@@ -21,7 +21,7 @@ class userController extends Controller
         $detailProducts = Product::find($id);
         return view('pages.user.detailProduct', compact(['detailProducts']));
     }
-    public function orderProducts(Request $request){
+    public function orderProducts(Request $request, $id){
         $ekstensi = $request->file('bukt_transfer')->clientExtension();
         $nama = $request->name.'-'.now()->timestamp.'.'.$ekstensi;
         $request->file('bukt_transfer')->storeAs('images', $nama);
@@ -30,12 +30,10 @@ class userController extends Controller
         // Hitung total harga berdasarkan jumlah pemesanan
         $total_harga = $request->product_price * $request->count;
         $insertProduct = Order::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone_number' => $request->phone_number,
+            'id_user' => Auth::user()->id,
+            'id_product' => $request->id_product,
             'count' => $request->count,
             'bukti_transfer' => $nama,
-            'product_name' => $request->product_name,
             'product_price' => $total_harga,
             'status_pesanan' => 'pending',
         ]);

@@ -234,4 +234,9 @@ class adminController extends Controller
             return redirect('/admin/listUser');
         }
     }
+    public function cetakPesanan()
+    {
+        $cetakPesanan = Order::all();
+        return view('pages.admin.cetak-pesanan', compact('cetakPesanan'));
+    }
 }
